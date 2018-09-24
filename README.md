@@ -52,3 +52,6 @@ https://dev.deluge-torrent.org/wiki/Download
 https://pi-hole.net/
 
 ## Final Remarks
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
