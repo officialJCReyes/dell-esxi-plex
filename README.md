@@ -33,15 +33,19 @@ I had a spare quad-port NIC lying around at my office that I decided to throw in
 ## Plex VM
 
 ## Plex Tools VM
-#### Tautulli
+#### Caddy (Reverse Proxy/SSL)
+https://caddyserver.com/download
+#### Tautulli (Plex Monitoring, Reporting and Newsletters)
 https://tautulli.com
-#### CouchPotato
+#### CouchPotato (Movie Downloader)
 https://couchpota.to/
-#### Sonarr
+#### Sonarr (TV Show Downloader)
 https://sonarr.tv/
-#### Ombi
+#### Ombi (Request content on Plex)
 https://ombi.io/
-#### Deluge
+#### Jackett (
+https://github.com/Jackett/Jackett
+#### Deluge (light-weight torrent client)
 https://dev.deluge-torrent.org/wiki/Download
 
 ## Pi-Hole
