@@ -33,5 +33,16 @@ I had a spare quad-port NIC lying around at my office that I decided to throw in
 ## Plex VM
 
 ## Plex Tools VM
+#### Tautulli
+https://tautulli.com
+#### CouchPotato
+https://couchpota.to/
+#### Sonarr
+https://sonarr.tv/
+#### Ombi
+https://ombi.io/
+#### Deluge
+https://dev.deluge-torrent.org/wiki/Download
 
 ## Pi-Hole
+https://pi-hole.net/
