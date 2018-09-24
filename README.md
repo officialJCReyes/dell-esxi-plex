@@ -13,10 +13,10 @@ For this project, I will be using a [Dell R320 Server](https://cdn.cnetcontent.c
 
 ## Upgrades
 #### Processor
-I chose NOT to upgrade my processor at the moment as for my needs, it was more than adequate. The best processor it supports is the Xeon E5-2470 with 8 cores/16 threads. Pages 15-16 provide a full list of compatible processors
+I chose NOT to upgrade my processor at the moment as it was more than adequate for my needs. The best processor it supports is the Xeon E5-2470 with 8 cores/16 threads. Pages 15-16 of the Technical Guide provide a full list of compatible processors
 
 #### RAM
-I added an additional pair of 8GB RAM sticks to bring the RAM total to 32 GB. This server supported up to 192 GB of RAM across 6 slots. 32 GB is plenty for my use but if you require more memory, be sure to check page 17 of the technical guide to determine the appropriate RAM to purchase.
+I added an additional pair of 8GB RAM sticks to bring the RAM total to 32 GB. This server supported up to 192 GB of RAM across 6 slots. 32 GB is plenty for my use but if you require more memory, be sure to check page 17 of the Technical Guide to determine the appropriate RAM to purchase.
 For this project I used the following RAM: (INSERT LINK HERE)
 
 #### Storage
