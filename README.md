@@ -11,8 +11,8 @@ For this project, I will be using a Dell R320 Server. The server came preconfigu
   * RAID- PERC H710 with RAID 10 configuration
   * Storage- 4 x 500GB 2.5" SAS HDD
   * Power- Dual 350W PSUs
-  * 1 x PCIex8
-  * 2 x PCIex16
+  * 1 x PCIe x8
+  * 2 x PCIe x16
 
 ## Upgrades
 #### Processor
@@ -50,3 +50,5 @@ https://dev.deluge-torrent.org/wiki/Download
 
 ## Pi-Hole
 https://pi-hole.net/
+
+## Final Remarks
