@@ -41,7 +41,7 @@ These are the final specs of my rebuilt server
 #### Installing ESXi
 
 #### Managing ESXi
-In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above do not use the vSphere client, you can manage it directly through a browser.
+In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above does not use the vSphere client, you can manage it directly through a browser.
 
 ## Creating VMs
 #### Creating Virtual Machines
