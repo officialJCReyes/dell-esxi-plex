@@ -25,22 +25,35 @@ I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and on
 #### PCI Expansion
 I had a spare quad-port NIC lying around at my office that I decided to throw into the PCIex8 port to dedicate a NIC per VM. This is NOT necessary as you can share the two NICs that are built into the server.
 
-## Installing ESXi
+## Installing Hypervisor
+#### Preparing Server
+#### Preparing Installing Media
+#### Preparing Boot Media
+#### Installing ESXi
+
+## Creating VMs
+#### Installing vSphere
+#### Creating Virtual Machines
+To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will argue for/against this and other Operating Systems. I picked Windows 10 Pro due to my familiarity with it. You can choose any OS you want. I have also made static IP assignments on my router for my Plex Server (192.168.5.10) and Plex Tools (192.168.5.11). 
+
 
 ## Plex VM
+
 
 ## Plex Tools VM
 #### Caddy (Reverse Proxy/SSL)
 https://caddyserver.com/download
+Ports 80 and 443
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
 https://tautulli.com
+Port 38081
 #### CouchPotato (Movie Downloader)
 https://couchpota.to/
 #### Sonarr (TV Show Downloader)
 https://sonarr.tv/
 #### Ombi (Request content on Plex)
 https://ombi.io/
-#### Jackett (
+#### Jackett ()
 https://github.com/Jackett/Jackett
 #### Deluge (light-weight torrent client)
 https://dev.deluge-torrent.org/wiki/Download
