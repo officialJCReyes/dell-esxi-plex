@@ -1,0 +1,38 @@
+domain.com {
+gzip
+proxy / 192.168.5.10:32400 { #Plex
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+    header_upstream X-Forwarded-Proto {scheme}
+    header_upstream X-Forwarded-Host {host}
+    header_upstream X-Forwarded-Ssl {on}
+    }
+proxy /plex 192.168.5.10:32400/web { #Plex
+    header_upstream Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+    header_upstream X-Forwarded-Proto {scheme}
+    header_upstream X-Forwarded-Host {host}
+    header_upstream X-Forwarded-Ssl {on}
+    }
+proxy /stats 192.168.5.11:38080 { #Tautulli
+	header_upstream X-Forwarded-Host {host}
+    header_upstream X-Real-IP {remote}
+    header_upstream X-Forwarded-For {remote}
+    header_upstream X-Forwarded-Proto {scheme}
+	}
+proxy /torrent 192.168.5.11:38081 { #Deluge
+	transparent
+	without /torrent
+	header_upstream X-Forwarded-Host {host}
+	header_upstream X-Deluge-Base /torrent
+	}
+proxy /movies 192.168.5.11:38082 #Couchpotato
+proxy /radarr 192.168.5.11:38083 #Radarr
+proxy /shows 192.168.5.11:38084 #Sonarr
+proxy /request 192.168.5.11:38085 #Ombi
+proxy /jackett 192.168.5.11:38086 { #Jackett
+	transparent
+	}
+}
