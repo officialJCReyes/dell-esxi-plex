@@ -8,8 +8,6 @@ For this project, I will be using a [Dell R320 Server](https://cdn.cnetcontent.c
   * RAID- PERC H710 with RAID 10 configuration
   * Storage- 4 x 500GB 2.5" SAS HDD
   * Power- Dual 350W PSUs
-  * 1 x PCIe x8
-  * 2 x PCIe x16
 
 ## Upgrades
 #### Processor
@@ -24,6 +22,14 @@ I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and on
 
 #### PCI Expansion
 I had a spare quad-port NIC lying around at my office that I decided to throw into the PCIex8 port to dedicate a NIC per VM. This is NOT necessary as you can share the two NICs that are built into the server.
+
+## Final Server Specs
+These are the final specs of my rebuilt server
+* CPU- Xeon E5-2430
+  * RAM- 4 x 8GB
+  * RAID- PERC H710 with RAID 5 configuration
+  * Storage- 7 x 4TB 2.5" SATA HDD & 1 x 120 GB SATA SSD
+  * Power- Dual 350W PSUs
 
 ## Installing Hypervisor
 #### Preparing Server
