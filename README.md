@@ -18,7 +18,7 @@ I added an additional pair of 8GB RAM sticks to bring the RAM total to 32 GB. Th
 For this project I used the following RAM: (INSERT LINK HERE)
 
 #### Storage
-I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 120GB SSD. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media.
+I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 120GB SSD. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector. I will be using an 8GB flash drive to serve as the ESXi boot device.
 
 #### PCI Expansion
 This server has 1 x PCIe x8 and 1 x PCIe x16 slots for expansion. I plan to eventually add a quad NIC.
