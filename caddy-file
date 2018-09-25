@@ -1,4 +1,4 @@
-domain.com {
+domain.com { #replace domain.com with your actual domain or DDNS address
 gzip
 proxy / 192.168.5.10:32400 { #Plex
     header_upstream Host {host}
@@ -29,10 +29,9 @@ proxy /torrent 192.168.5.11:38081 { #Deluge
 	header_upstream X-Deluge-Base /torrent
 	}
 proxy /movies 192.168.5.11:38082 #Couchpotato
-proxy /radarr 192.168.5.11:38083 #Radarr
-proxy /shows 192.168.5.11:38084 #Sonarr
-proxy /request 192.168.5.11:38085 #Ombi
-proxy /jackett 192.168.5.11:38086 { #Jackett
+proxy /shows 192.168.5.11:38083 #Sonarr
+proxy /request 192.168.5.11:38084 #Ombi
+proxy /jackett 192.168.5.11:38085 { #Jackett
 	transparent
 	}
 }
