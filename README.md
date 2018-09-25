@@ -27,8 +27,11 @@ I had a spare quad-port NIC lying around at my office that I decided to throw in
 
 ## Installing Hypervisor
 #### Preparing Server
+
 #### Preparing Installing Media
+
 #### Preparing Boot Media
+ 
 #### Installing ESXi
 
 ## Creating VMs
@@ -42,6 +45,7 @@ Port 32400
 
 ## Plex Tools VM
 Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
+
 #### Caddy (Reverse Proxy/SSL)
 [Download](https://caddyserver.com/download)
 Ports 80 and 443
@@ -50,6 +54,7 @@ Ports 80 and 443
 Port 38080
 #### Deluge (light-weight torrent client)
 [Download](https://dev.deluge-torrent.org/wiki/Download)
+[Download WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg)
 Port 38081
 #### CouchPotato (Movie Downloader)
 [Download](https://couchpota.to/)
