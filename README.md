@@ -62,7 +62,7 @@ Port 38080
 Open a command prompt and type "nssm install Tautulli"
 
 #### VPN
-[OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) and [Private Internet Access OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip)
+We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install[OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to "C:\Users\USERNAME\OpenVPN\config".
 
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
@@ -71,17 +71,17 @@ Open a command prompt and type "nssm install Deluged". Use the following configu
 
 To install the EGG file we downloaded earlier, go to Preferences-> PLugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
 
-#### CouchPotato (Movie Downloader)
+#### CouchPotato (Organizes and obtains movies)
 [Download](https://couchpota.to/)
 Port 38082
 Open a command prompt and type "nssm install CouchPotato"
 
-#### Sonarr (TV Show Downloader)
+#### Sonarr (Organizes and obtains TV shows)
 [Download](https://sonarr.tv/)
 Port 38083
 Open a command prompt and type "nssm install Sonarr"
 
-#### Ombi (Request content on Plex)
+#### Ombi (Allows users to request TV and Movies)
 [Download](https://ombi.io/)
 Port 38084
 Open a command prompt and type "nssm install Ombi"
