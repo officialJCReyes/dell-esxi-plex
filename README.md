@@ -57,18 +57,19 @@ Inside the Caddy folder, create a subfolder called "php". Download the following
 To run Caddy as a service, open a command prompt and type "nssm install Caddy"
 
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
-[Download](https://tautulli.com)
+[Download](https://github.com/Tautulli/Tautulli/releases)
 Port 38080
 Open a command prompt and type "nssm install Tautulli"
 
 #### VPN
-OpenVPN and Private Internet Access
+[OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) and [Private Internet Access OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip)
 
 #### Deluge (light-weight torrent client)
-[Download](https://dev.deluge-torrent.org/wiki/Download)
-[Download WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg)
-Port 38081
-Open a command prompt and type "nssm install Deluge"
+We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
+
+Open a command prompt and type "nssm install Deluged". Use the following configuration: . Back at the command prompt, type "nssm install Deluge-Web" and use the following configuration. Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended.
+
+To install the EGG file we downloaded earlier, go to Preferences-> PLugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
 
 #### CouchPotato (Movie Downloader)
 [Download](https://couchpota.to/)
