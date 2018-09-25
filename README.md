@@ -38,26 +38,31 @@ To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will 
 
 
 ## Plex VM
-
+Port 32400
 
 ## Plex Tools VM
+Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
 #### Caddy (Reverse Proxy/SSL)
-https://caddyserver.com/download
+[Download](https://caddyserver.com/download)
 Ports 80 and 443
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
-https://tautulli.com
+[Download](https://tautulli.com)
+Port 38080
+#### Deluge (light-weight torrent client)
+[Download](https://dev.deluge-torrent.org/wiki/Download)
 Port 38081
 #### CouchPotato (Movie Downloader)
-https://couchpota.to/
+[Download](https://couchpota.to/)
+Port 38082
 #### Sonarr (TV Show Downloader)
-https://sonarr.tv/
+[Download](https://sonarr.tv/)
+Port 38083
 #### Ombi (Request content on Plex)
-https://ombi.io/
+[Download](https://ombi.io/)
+Port 38084
 #### Jackett ()
-https://github.com/Jackett/Jackett
-#### Deluge (light-weight torrent client)
-https://dev.deluge-torrent.org/wiki/Download
-
+[Download](https://github.com/Jackett/Jackett)
+Port 38085
 ## Pi-Hole
 https://pi-hole.net/
 
