@@ -20,7 +20,7 @@ I added an additional pair of 8GB RAM sticks to bring the RAM total to 32 GB. Th
 For this project I used the following RAM: (INSERT LINK HERE)
 
 #### Storage
-I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 120GB SSD. This will provide a 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media.
+I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 120GB SSD. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media.
 
 #### PCI Expansion
 I had a spare quad-port NIC lying around at my office that I decided to throw into the PCIex8 port to dedicate a NIC per VM. This is NOT necessary as you can share the two NICs that are built into the server.
@@ -42,7 +42,7 @@ To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will 
 ## Plex VM
 Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMS, with PMS being a standard user. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the "win64" folder to "C:\Windows\System32". This allows use to run NSSM via the command line.
 
-We will now be installing the latest version Plex, which you can always [download here](https://www.plex.tv/media-server-downloads/). If you have an SSD, I would recommend installing Plex to it as this will allow to load library [metadata](https://support.plex.tv/articles/200889878-matching-process/#toc-2) faster. Follow all the prompts to install the Plex Media Server, but do not launch it. Plex requires port 32400 in order to function as a server. We will be doing this on the Windows Firewall AND the router.
+We will now be installing the latest version Plex, which you can always [download here](https://www.plex.tv/media-server-downloads/). If you have an SSD, I would recommend installing Plex on it, as it can provide some improvements with transcoding and loading metadata. You can read more about that [here](https://support.plex.tv/articles/200889878-matching-process/#toc-2). Follow all the prompts to install the Plex Media Server, but do not launch it. Plex requires port 32400 in order to function as a server. We will be doing this on the Windows Firewall AND the router.
 
 Open a command prompt and type "nssm install Plex"
 
@@ -50,30 +50,41 @@ Open a command prompt and type "nssm install Plex"
 Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMST, with PMST being a standard user. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
 
 #### Caddy (Reverse Proxy/SSL)
-We will first start by downloading our reverse proxy tool [here](https://caddyserver.com/download). Create a folder called "Caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file)
+We will first start by downloading our reverse proxy tool [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
 
-Open a command prompt and type "nssm install Caddy"
+Inside the Caddy folder, create a subfolder called "php". Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to C:\caddy\php
+
+To run Caddy as a service, open a command prompt and type "nssm install Caddy"
+
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
 [Download](https://tautulli.com)
 Port 38080
 Open a command prompt and type "nssm install Tautulli"
+
+#### VPN
+OpenVPN and Private Internet Access
+
 #### Deluge (light-weight torrent client)
 [Download](https://dev.deluge-torrent.org/wiki/Download)
 [Download WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg)
 Port 38081
 Open a command prompt and type "nssm install Deluge"
+
 #### CouchPotato (Movie Downloader)
 [Download](https://couchpota.to/)
 Port 38082
 Open a command prompt and type "nssm install CouchPotato"
+
 #### Sonarr (TV Show Downloader)
 [Download](https://sonarr.tv/)
 Port 38083
 Open a command prompt and type "nssm install Sonarr"
+
 #### Ombi (Request content on Plex)
 [Download](https://ombi.io/)
 Port 38084
 Open a command prompt and type "nssm install Ombi"
+
 #### Jackett (Aggregator)
 [Download](https://github.com/Jackett/Jackett)
 Port 38085
