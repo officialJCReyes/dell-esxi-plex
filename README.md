@@ -47,8 +47,7 @@ Port 32400
 Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
 
 #### Caddy (Reverse Proxy/SSL)
-[Download](https://caddyserver.com/download)
-Ports 80 and 443
+We will first start by downloading our reverse proxy tool [here](https://caddyserver.com/download). Create a folder called "Caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file)
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
 [Download](https://tautulli.com)
 Port 38080
