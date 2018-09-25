@@ -21,11 +21,11 @@ For this project I used the following RAM: (INSERT LINK HERE)
 I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 120GB SSD. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media.
 
 #### PCI Expansion
-I had a spare quad-port NIC lying around at my office that I decided to throw into the PCIex8 port to dedicate a NIC per VM. This is NOT necessary as you can share the two NICs that are built into the server.
+This server has 1 x PCIe x8 and 1 x PCIe x16 slots for expansion. I plan to eventually add a quad NIC.
 
 ## Final Server Specs
 These are the final specs of my rebuilt server
-* CPU- Xeon E5-2430
+  * CPU- Xeon E5-2430
   * RAM- 4 x 8GB
   * RAID- PERC H710 with RAID 5 configuration
   * Storage- 7 x 4TB 2.5" SATA HDD & 1 x 120 GB SATA SSD
@@ -40,8 +40,10 @@ These are the final specs of my rebuilt server
  
 #### Installing ESXi
 
+#### Managing ESXi
+In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above do not use the vSphere client, you can manage it directly through a browser.
+
 ## Creating VMs
-#### Installing vSphere
 #### Creating Virtual Machines
 To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will argue for/against this and other Operating Systems. I picked Windows 10 Pro due to my familiarity with it and you can delay when updates are installed. You can choose any OS you want, but for this guide we will be focusing on Windows 10. I have also made static IP assignments on my router for my Plex Server (192.168.5.10) and Plex Tools (192.168.5.11). 
 
