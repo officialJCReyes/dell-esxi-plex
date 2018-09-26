@@ -54,7 +54,7 @@ We will now be installing the latest version Plex, which you can always [downloa
 
 Open a command prompt and type *nssm install Plex*
 
-**Path:** C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Server.exe
+**Path:** C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Server.exe  
 **Startup Directory:** C:\Program Files (x86)\Plex\Plex Media Server  
 
 ## Plex Tools VM
