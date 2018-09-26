@@ -48,11 +48,14 @@ In order to start managing and creating VMs, we will first need to connect to ou
 To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will argue for/against this and other Operating Systems. I picked Windows 10 Pro due to my familiarity with it and you can delay when updates are installed. You can choose any OS you want, but for this guide we will be focusing on Windows 10. I have also made static IP assignments on my router for my Plex Server (192.168.5.10) and Plex Tools (192.168.5.11). 
 
 ## Plex VM
-Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMS, with PMS being a standard user. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the "win64" folder to "C:\Windows\System32". This allows use to run NSSM via the command line.
+Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMS, with PMS being a standard user. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the *win64* folder to *C:\Windows\System32*. This allows use to run NSSM via the command line.
 
 We will now be installing the latest version Plex, which you can always [download here](https://www.plex.tv/media-server-downloads/). If you have an SSD, I would recommend installing Plex on it, as it can provide some improvements with transcoding and loading metadata. You can read more about that [here](https://support.plex.tv/articles/200889878-matching-process/#toc-2). Follow all the prompts to install the Plex Media Server, but do not launch it. Plex requires port 32400 in order to function as a server. We will be doing this on the Windows Firewall AND the router.
 
-Open a command prompt and type "nssm install Plex"
+Open a command prompt and type *nssm install Plex*
+
+**Path:** C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Server.exe
+**Startup Directory:** C:\Program Files (x86)\Plex\Plex Media Server  
 
 ## Plex Tools VM
 Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMST, with PMST being a standard user. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
@@ -78,11 +81,13 @@ We will need to download the latest version of Deluge from [here](https://dev.de
 Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
+**Start directory:** C:\Program Files\Deluge\  
 **Arguments:** -c C:\config_location
 
 Back at the command prompt, type *nssm install Delugew*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
+**Start directory:** C:\Program Files\Deluge\  
 **Arguments:** -c C:\config_location
 
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
