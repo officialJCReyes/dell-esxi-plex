@@ -77,13 +77,13 @@ We will need to download the latest version of Deluge from [here](https://dev.de
 
 Open command prompt and type "nssm install Deluged". Use the following settings for NSSM: 
 
-Path: C:\Program Files\Deluge\deluged-debug.exe  
-Arguments: -c C:\config_location
+**Path:** C:\Program Files\Deluge\deluged-debug.exe  
+**Arguments:** -c C:\config_location
 
 Back at the command prompt, type "nssm install Delugew". Use the following settings for NSSM: 
 
-Path: C:\Program Files\Deluge\deluge-web-debug.exe  
-Arguments: -c C:\config_location
+**Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
+**Arguments:** -c C:\config_location
 
 Back at the command prompt, be sure both services are running by typing "nssm start Deluged" and "nssm start Delugew".
 
@@ -94,9 +94,9 @@ We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
-Path: c:\python27\python.exe  
-Start directory: c:\python27  
-Arguments: C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer
+**Path:** c:\python27\python.exe  
+**Start directory:** c:\python27  
+**Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer
 
 Save the NSSM settings and when you're back the command prompt, type "nssm start CouchPotato". Open a new browser tab and head to 127.0.0.1:5050
 Port 38082
