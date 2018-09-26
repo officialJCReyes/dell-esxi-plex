@@ -75,19 +75,36 @@ We will be using Private Internet Access as our VPN provider and OpenVPN for the
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
 
-Open a command prompt and type "nssm install Deluged". Use the following configuration: . Back at the command prompt, type "nssm install Deluge-Web" and use the following configuration. Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended.
+Open command prompt and type "nssm install Deluged". Use the following settings for NSSM: 
 
-To install the EGG file we downloaded earlier, go to Preferences-> PLugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
+Path: C:\Program Files\Deluge\deluged-debug.exe
+Arguments: -c C:\config_location
+
+Back at the command prompt, type "nssm install Delugew". Use the following settings for NSSM: 
+
+Path: C:\Program Files\Deluge\deluge-web-debug.exe
+Arguments: -c C:\config_location
+
+Back at the command prompt, be sure both services are running by typing "nssm start Deluged" and "nssm start Delugew".
+
+Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> PLugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
 
 #### CouchPotato (Organizes and obtains movies)
-[Download](https://couchpota.to/)
+We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](http://git-scm.com/). Run the Python installer and be sure to keep the default directory "C:\Python27". Open up command prompt, type "cd C:\Tools\" and then "git clone https://github.com/CouchPotato/CouchPotatoServer.git". This will download the latest release for CouchPotato into "\CouchPotatoServer".
+
+Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
+
+Path: c:\python27\python.exe
+Start directory: c:\python27
+Arguments: C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer
+
+Save the NSSM settings and when you're back the command prompt, type "nssm start CouchPotato". Open a new browser tab and head to 127.0.0.1:5050
 Port 38082
-Open a command prompt and type "nssm install CouchPotato"
 
 #### Sonarr (Organizes and obtains TV shows)
-[Download](https://sonarr.tv/)
+[Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to "C:\Tools\Sonarr".
+Open command prompt and type "nssm install Sonarr"
 Port 38083
-Open a command prompt and type "nssm install Sonarr"
 
 #### Ombi (Allows users to request TV and Movies)
 [Download](https://ombi.io/)
@@ -97,7 +114,7 @@ Open a command prompt and type "nssm install Ombi"
 #### Jackett (Aggregator)
 [Download](https://github.com/Jackett/Jackett)
 Port 38085
-Open a command prompt and type "nssm install Jackett"
+Open command prompt and type "nssm install Jackett"
 
 ## Pi-Hole
 https://pi-hole.net/
