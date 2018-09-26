@@ -108,18 +108,18 @@ Port 38082
 
 #### Sonarr (Organizes and obtains TV shows)
 [Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to *C:\Tools\Sonarr*.
-Open command prompt and type "nssm install Sonarr"
+Open command prompt and type *nssm install Sonarr*
 Port 38083
 
 #### Ombi (Allows users to request TV and Movies)
 [Download](https://ombi.io/)
 Port 38084
-Open a command prompt and type "nssm install Ombi"
+Open a command prompt and type *nssm install Ombi*
 
 #### Jackett (Aggregator)
 [Download](https://github.com/Jackett/Jackett)
 Port 38085
-Open command prompt and type "nssm install Jackett"
+Open command prompt and type *nssm install Jackett*
 
 ## Pi-Hole
 https://pi-hole.net/
