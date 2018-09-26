@@ -63,7 +63,7 @@ Since this VM will be on 24/7, I've decided to create two user accounts, Adminis
 #### Caddy (Reverse Proxy/SSL)
 We will first start by downloading our reverse proxy tool [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
 
-Inside the Caddy folder, create a subfolder called *php*. Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to C:\caddy\php
+Inside the Caddy folder, create a subfolder called *php*. Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to *C:\caddy\php*
 
 To run Caddy as a service, open a command prompt and type *nssm install Caddy*
 
