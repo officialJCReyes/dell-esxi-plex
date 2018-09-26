@@ -60,9 +60,9 @@ Since this VM will be on 24/7, I've decided to create two user accounts, Adminis
 #### Caddy (Reverse Proxy/SSL)
 We will first start by downloading our reverse proxy tool [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
 
-Inside the Caddy folder, create a subfolder called "php". Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to C:\caddy\php
+Inside the Caddy folder, create a subfolder called *php*. Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to C:\caddy\php
 
-To run Caddy as a service, open a command prompt and type "nssm install Caddy"
+To run Caddy as a service, open a command prompt and type *nssm install Caddy*
 
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
 [Download](https://github.com/Tautulli/Tautulli/releases)
@@ -70,27 +70,27 @@ Port 38080
 Open a command prompt and type "nssm install Tautulli"
 
 #### VPN
-We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install[OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to "C:\Users\USERNAME\OpenVPN\config".
+We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install[OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Users\USERNAME\OpenVPN\config*.
 
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
 
-Open command prompt and type "nssm install Deluged". Use the following settings for NSSM: 
+Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
 **Arguments:** -c C:\config_location
 
-Back at the command prompt, type "nssm install Delugew". Use the following settings for NSSM: 
+Back at the command prompt, type *nssm install Delugew*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
 **Arguments:** -c C:\config_location
 
-Back at the command prompt, be sure both services are running by typing "nssm start Deluged" and "nssm start Delugew".
+Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
 Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> PLugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
 
 #### CouchPotato (Organizes and obtains movies)
-We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](http://git-scm.com/). Run the Python installer and be sure to keep the default directory "C:\Python27". Open up command prompt, type "cd C:\Tools\" and then "git clone https://github.com/CouchPotato/CouchPotatoServer.git". This will download the latest release for CouchPotato into "\CouchPotatoServer".
+We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](http://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
@@ -98,11 +98,11 @@ Open command prompt and type "nssm install CouchPotato". Use the following setti
 **Start directory:** c:\python27  
 **Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer
 
-Save the NSSM settings and when you're back the command prompt, type "nssm start CouchPotato". Open a new browser tab and head to 127.0.0.1:5050
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5050
 Port 38082
 
 #### Sonarr (Organizes and obtains TV shows)
-[Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to "C:\Tools\Sonarr".
+[Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to *C:\Tools\Sonarr*.
 Open command prompt and type "nssm install Sonarr"
 Port 38083
 
