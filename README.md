@@ -33,6 +33,7 @@ These are the final specs of my rebuilt server
 
 ## Installing Hypervisor
 #### Preparing Server
+We will start by turning on our server, selecting F10 to get into the LifeCycle Controller. Select the FTP option. We will use the following server to obtain the latest updates from Dell for our specific server: ftp.dell.com.
 
 #### Preparing Installing Media
 
