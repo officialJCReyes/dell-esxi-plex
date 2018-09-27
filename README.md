@@ -40,6 +40,7 @@ We will start by turning on our server, selecting F10 to get into the LifeCycle 
 #### Preparing Boot Media
  
 #### Installing ESXi
+Connect your install media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
 
 #### Managing ESXi
 In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above does not use the vSphere client, you can manage it directly through a browser.
