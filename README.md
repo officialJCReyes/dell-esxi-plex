@@ -43,7 +43,12 @@ First we will go to Dell's Support [site](suport.dell.com) to download the lates
 ##### Enter your Dell Service Tag
 ![alt text](https://i.imgur.com/tbSfaie.jpg "Dell Support Site")  
 ##### Select Drivers & Downloads -> Change Operating System to "VMware ESXi 6.5" -> Change Category to "Enterprise Solutions" -> Click "Download" for VMware ESXi 6.5 U2
-![alt text](https://imgur.com/vogJvaB.jpg "Dell ESXi Download")
+![alt text](https://imgur.com/vogJvaB.jpg "Dell ESXi Download")  
+
+Now that we have our ISO, we wil need to create our bootable media. The ISO is only 350 MB so a 1 GB flash drive will suffice. To make the USB drive bootable, we'll use a popular tool called Rufus. [Download](http://rufus.akeo.ie/) the tool and run it once it is installed.
+
+##### Your USB drive will automatically be populated. Click "Select" to browser to the ISO you downloaded. Leave all other settings and click "start
+![alt text](https://imgur.com/mz69kXX.jpg "Rufus ESXi USB")   
  
 #### Installing ESXi
 Connect your install media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
