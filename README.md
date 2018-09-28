@@ -39,7 +39,10 @@ We will start by turning on our server, selecting F10 to get into the LifeCycle 
 
 #### Preparing Boot Media
 First we will go to Dell's Support [site](suport.dell.com) to download the latest ESXi for our server. Going through Dell's site allows you to download a custom ESXi image that has the drivers builtin in for your specific server.
-![alt text](https://i.imgur.com/tbSfaie.jpg "Dell Support Site")
+
+![alt text](https://i.imgur.com/tbSfaie.jpg "Dell Support Site")  
+
+![alt text](https://imgur.com/vogJvaB.jpg "Dell ESXi Download")
  
 #### Installing ESXi
 Connect your install media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
