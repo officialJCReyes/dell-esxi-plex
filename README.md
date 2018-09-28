@@ -53,7 +53,7 @@ Now that we have our ISO, we wil need to create our bootable media. The ISO is o
 #### Preparing Server
 We now need to configure the RAID controller to recognize our drives and put them in our single drive configuration (1 SSD) and RAID 5 configuration (seven 4TB drives) for ESXi to be able to recognize and access.
 
-Let's boot up our server and select F10 on boot to get to the Lifecycle Controller. When you are at the Lifecycle Controller interface, select "Configure RAID", since we only have one controller, select "Next". On the following screen, we can pick our RAID configuration, we will use RAID 5. On the the third step, we will select all of the drives for our RAID 5 and press "Next". TO create our virtual disk, we need to give it a name. I will call mine "Media". On the Summary Page, click on Finish and click Yes on the acknowledge page regarding wiping the drives.
+Let's boot up our server and select F10 on boot to get to the Lifecycle Controller. When you are at the Lifecycle Controller interface, select "Configure RAID", since we only have one controller, select "Next". On the following screen, we can pick our RAID configuration, we will use RAID 5. On the the third step, we will select all of the drives for our RAID 5 and press "Next". TO create our virtual disk, we need to give it a name. I will call mine "Media". On the Summary Page, click on Finish and click Yes on the acknowledge page regarding wiping the drives. When it is done, go ahead and exit so you can reboot.
 
 #### Installing ESXi
 Connect your install media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
