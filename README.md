@@ -18,7 +18,7 @@ I added an additional pair of 8GB RAM sticks to bring the RAM total to 32 GB. Th
 For this project I used the following RAM: (INSERT LINK HERE)
 
 #### Storage
-I replaced all the drives in this server with eight 4 TB 2.5" SATA drives and one 250GB SSD in a USB enclouser. This will provide 32 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 28TB of raw storage and RAID 6 provides 24TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector. I will be using an 8GB flash drive to serve as the ESXi boot device. The 250GB SSD will be used to house the Windows 10 virtual machines for Plex and Plex Media Tools.
+I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 250GB SSD in a USB enclouser. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector, which I will use to connect an 8GB flash drive to serve as the ESXi boot device. The 250GB SSD will be used to house the Windows 10 virtual machines for Plex and Plex Media Tools and will be in a RAID 0 configuration.
 
 #### PCI Expansion
 This server has 1 x PCIe x8 and 1 x PCIe x16 slots for expansion. I plan to eventually add a quad NIC.
@@ -28,7 +28,7 @@ These are the final specs of my rebuilt server
   * CPU- Xeon E5-2430
   * RAM- 4 x 8GB
   * RAID- PERC H710 with RAID 5 configuration
-  * Storage- 8 x 4TB 2.5" SATA HDD & 1 x 250 GB SSD via USB
+  * Storage- 7 x 4TB 2.5" SATA HDD & 1 x 250 GB SATA SSD
   * Power- Dual 350W PSUs
 
 ## Installing Hypervisor
@@ -140,7 +140,7 @@ Port 38085
 Open command prompt and type *nssm install Jackett*
 
 ## Pi-Hole
-https://pi-hole.net/
+This part of the project is not necessary, but it is something I wanted to do to block analytics, tracking, malware and other unwanted items as a result of ads. This will not only protect your computer but any device that connects to your network, be it a smart TV, smart phone, console etc. You can find out more about this project [here].(https://pi-hole.net/)
 
 ## Final Remarks
 
