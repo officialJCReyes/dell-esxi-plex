@@ -18,7 +18,7 @@ I added an additional pair of 8GB RAM sticks to bring the RAM total to 32 GB. Th
 For this project I used the following RAM: (INSERT LINK HERE)
 
 #### Storage
-I replaced all the drives in this server with seven 4 TB 2.5" SATA drives and one 120GB SSD. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector. I will be using an 8GB flash drive to serve as the ESXi boot device.
+I replaced all the drives in this server with eight 4 TB 2.5" SATA drives and one 250GB SSD in a USB enclouser. This will provide 32 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 28TB of raw storage and RAID 6 provides 24TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector. I will be using an 8GB flash drive to serve as the ESXi boot device. The 250GB SSD will be used to house the Windows 10 virtual machines for Plex and Plex Media Tools.
 
 #### PCI Expansion
 This server has 1 x PCIe x8 and 1 x PCIe x16 slots for expansion. I plan to eventually add a quad NIC.
@@ -28,7 +28,7 @@ These are the final specs of my rebuilt server
   * CPU- Xeon E5-2430
   * RAM- 4 x 8GB
   * RAID- PERC H710 with RAID 5 configuration
-  * Storage- 7 x 4TB 2.5" SATA HDD & 1 x 120 GB SATA SSD
+  * Storage- 8 x 4TB 2.5" SATA HDD & 1 x 250 GB SSD via USB
   * Power- Dual 350W PSUs
 
 ## Installing Hypervisor
@@ -56,7 +56,7 @@ We now need to configure the RAID controller to recognize our drives and put the
 Let's boot up our server and select F10 on boot to get to the Lifecycle Controller. When you are at the Lifecycle Controller interface, select "Configure RAID", since we only have one controller, select "Next". On the following screen, we can pick our RAID configuration, we will use RAID 5. On the the third step, we will select all of the drives for our RAID 5 and press "Next". TO create our virtual disk, we need to give it a name. I will call mine "Media". On the Summary Page, click on Finish and click Yes on the acknowledge page regarding wiping the drives. When it is done, go ahead and exit so you can reboot.
 
 #### Installing ESXi
-Connect your install media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
+Connect your installation media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
 
 #### Managing ESXi
 In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above does not use the vSphere client, you can manage it directly through a browser.
@@ -66,7 +66,7 @@ In order to start managing and creating VMs, we will first need to connect to ou
 To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will argue for/against this and other Operating Systems. I picked Windows 10 Pro due to my familiarity with it and you can delay when updates are installed. You can choose any OS you want, but for this guide we will be focusing on Windows 10. I have also made static IP assignments on my router for my Plex Server (192.168.5.10) and Plex Tools (192.168.5.11). 
 
 ## Plex VM
-Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMS, with PMS being a standard user. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the *win64* folder to *C:\Windows\System32*. This allows use to run NSSM via the command line.
+Since this VM will be on 24/7, I've decided to create two user accounts, Administrator and PMS, with PMS being a standard user and which will be logged in all the time. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the *win64* folder to *C:\Windows\System32*. This allows use to run NSSM via the command line.
 
 We will now be installing the latest version Plex, which you can always [download here](https://www.plex.tv/media-server-downloads/). If you have an SSD, I would recommend installing Plex on it, as it can provide some improvements with transcoding and loading metadata. You can read more about that [here](https://support.plex.tv/articles/200889878-matching-process/#toc-2). Follow all the prompts to install the Plex Media Server, but do not launch it. Plex requires port 32400 in order to function as a server. We will be doing this on the Windows Firewall AND the router.
 
