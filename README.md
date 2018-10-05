@@ -59,7 +59,30 @@ Let's boot up our server and select F10 on boot to get to the Lifecycle Controll
 Connect your installation media to any free USB port and boot up your server. Press F11 when you are at the loading screen and when you are given the option, select UEFI Boot. Select your install media, which in my case was labeled "front USB"
 
 #### Managing ESXi
-In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above does not use the vSphere client, you can manage it directly through a browser.
+In order to start managing and creating VMs, we will first need to connect to our ESXi host. ESXi 6.5 and above does not use the vSphere client, you can manage it directly through a browser. You can find the IP address of your ESXi host on the server. On the monitor you will seee the screen split in grey and yellow. The IP address will be listed in the lower half of the screen. In our case it is 10.0.1.19. (I was configuring this device at work so my IP address structure will be different than my final location)
+
+![alt text](https://imgur.com/R8uMrOI.jpg "ESXi Login Screen")  
+
+We will use *root* and the password we created after we installed ESXi. You will now be presented with the host page for ESXi. Here you will find all the basic information of your server such as RAM, CPU, what image you are using etc.
+
+![alt text](https://imgur.com/9zrzjpQ.jpg "ESXi Main Screen")  
+
+The next few screenshots will walk you through how to create a datastore so that you have a location for your virtual machines to live.
+
+![alt text](https://imgur.com/cO7EQ6c.jpg "ESXi New Datastore 01")  
+![alt text](https://imgur.com/cwRWCwV.jpg "ESXi New Datastore 02")  
+![alt text](https://imgur.com/C8Z0tyR.jpg "ESXi New Datastore 03")  
+![alt text](https://imgur.com/I3pIPsu.jpg "ESXi New Datastore 04")  
+![alt text](https://imgur.com/4PplKrm.jpg "ESXi New Datastore 05")  
+![alt text](https://imgur.com/929dNyL.jpg "ESXi New Datastore 06")  
+
+With our datastore created, we will now need to upload ISOs for the operating system(s) we want to install on our virtual machines. Since I will be using Windows 10, we will create a folder to house our ISOs and then upload the Windows 10 ISO.
+
+![alt text](https://imgur.com/SJpTf8y.jpg "ESXi Adding ISOs 01")  
+![alt text](https://imgur.com/jRIbuqa.jpg "ESXi Adding ISOs 02")
+![alt text](https://imgur.com/JXQhXAV.jpg "ESXi Adding ISOs 03")  
+![alt text](https://imgur.com/udOADMV.jpg "ESXi Adding ISOs 04")
+![alt text](https://imgur.com/4S3m6Pv.jpg "ESXi Adding ISOs 05")
 
 ## Creating VMs
 #### Creating Virtual Machines
