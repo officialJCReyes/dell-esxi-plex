@@ -28,7 +28,7 @@ These are the final specs of my rebuilt server
   * CPU- Xeon E5-2430
   * RAM- 4 x 8GB
   * RAID- PERC H710 with RAID 5 configuration
-  * Storage- 7 x 4TB 2.5" SATA HDD & 1 x 250 GB SATA SSD
+  * Storage- 1 x 250 GB SATA SSD (RAID 1) 7 x 4TB 2.5" SATA HDD (RAID 5)
   * Power- Dual 350W PSUs
 
 ## Installing Hypervisor
@@ -101,6 +101,8 @@ Now that we have created a virtual machine and gave a bootable device, we will w
 
 ![alt text](https://imgur.com/b6XV0Jl.jpg "ESXi Turning on a VM")  
 ![alt text](https://imgur.com/zmUzr7H.jpg "ESXi Opening VM Console")
+
+With the console open, you can now proceed with the standard installation of the operating system of your choosing 
 
 ## Plex VM
 Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMS, with PMS being a standard user and which will be logged in all the time. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the *win64* folder to *C:\Windows\System32*. This allows use to run NSSM via the command line.
