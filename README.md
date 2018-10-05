@@ -88,6 +88,20 @@ With our datastore created, we will now need to upload ISOs for the operating sy
 #### Creating Virtual Machines
 To run my Plex Server, I've decided to go with Windows 10 Pro. Many people will argue for/against this and other Operating Systems. I picked Windows 10 Pro due to my familiarity with it and you can delay when updates are installed. You can choose any OS you want, but for this guide we will be focusing on Windows 10. I have also made static IP assignments on my router for my Plex Server (192.168.5.10) and Plex Tools (192.168.5.11). 
 
+![alt text](https://imgur.com/7snbPkB.jpg "ESXi Creating a VM 01")  
+![alt text](https://imgur.com/tGgeH47.jpg "ESXi Creating a VM 02")
+![alt text](https://imgur.com/lrp2cFw.jpg "ESXi Creating a VM 03")  
+![alt text](https://imgur.com/rtXgfVV.jpg "ESXi Creating a VM 04")
+![alt text](https://imgur.com/bg3HSIa.jpg "ESXi Creating a VM 05")
+![alt text](https://imgur.com/18ervsj.jpg "ESXi Creating a VM 06")
+![alt text](https://imgur.com/RCEL4R3.jpg "ESXi Creating a VM 07")
+![alt text](https://imgur.com/ir0nBfS.jpg "ESXi Creating a VM 08")
+
+Now that we have created a virtual machine and gave a bootable device, we will want to turn it on and access a virtual monitor to start our operating system install.
+
+![alt text](https://imgur.com/b6XV0Jl.jpg "ESXi Turning on a VM")  
+![alt text](https://imgur.com/zmUzr7H.jpg "ESXi Opening VM Console")
+
 ## Plex VM
 Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMS, with PMS being a standard user and which will be logged in all the time. I prefer running Plex as a Windows service so that it will auto start when I reboot the VM for updates or maintance. We will be using NSSM, the Non-Sucking Service Manager, which you can download [here](https://nssm.cc/download). Open the ZIP file and copy the contents of the *win64* folder to *C:\Windows\System32*. This allows use to run NSSM via the command line.
 
