@@ -139,13 +139,13 @@ Open command prompt and type *nssm install Deluged*. Use the following settings 
 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
-**Arguments:** -c C:\config_location
+**Arguments:** C:\config_location
 
 Back at the command prompt, type *nssm install Delugew*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
-**Arguments:** -c C:\config_location
+**Arguments:** C:\config_location
 
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
