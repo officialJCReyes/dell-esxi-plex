@@ -134,13 +134,13 @@ Open command prompt and type *nssm install Deluged*. Use the following settings 
 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
-**Arguments:** -c C:\config_location
+**Arguments:** -c C:\config_location  
 ![alt text](https://imgur.com/ruuY3WH.jpg "Deluged NSSM")  
 Back at the command prompt, type *nssm install Delugew*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
-**Arguments:** -c C:\config_location
+**Arguments:** -c C:\config_location  
 ![alt text](https://imgur.com/oBTp4NB.jpg "Delugew NSSM")  
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
@@ -153,7 +153,7 @@ Open a command prompt and type *nssm install Tautulli*
 
 **Path:** C:\Python27\pythonw.exe  
 **Start directory:** C:\Python27\  
-**Arguments:** C:\Tools\Tautulli\Tautulli.py
+**Arguments:** C:\Tools\Tautulli\Tautulli.py  
 ![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
 
 #### CouchPotato (Organizes and obtains movies)
@@ -173,7 +173,7 @@ Port 38082
 [Download](https://github.com/Sonarr/Sonarr/releases) Sonarr and extract contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*
 
 **Path:** C:\Tools\Sonarr\NzbDrone.exe  
-**Start directory:** C:\Tools\Sonarr
+**Start directory:** C:\Tools\Sonarr  
 ![alt text](https://imgur.com/WLGYMiX.jpg "Sonarr NSSM")  
 
 Port 38083
@@ -184,7 +184,7 @@ Port 38083
 Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
 
 **Path:** C:\Tools\Ombi\Ombi.exe  
-**Start directory:** C:\Tools\Ombi 
+**Start directory:** C:\Tools\Ombi  
 ![alt text](https://imgur.com/rR6ACCf.jpg "Ombi NSSM")  
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5000
@@ -193,7 +193,7 @@ Port 38084
 #### Jackett (Aggregator)
 [Download](https://github.com/Jackett/Jackett/releases)
 **Path:** C:\ProgramData\Jackett\JackettConsole.exe  
-**Start directory:** C:\ProgramData\Jackett 
+**Start directory:** C:\ProgramData\Jackett  
 ![alt text](https://imgur.com/uQZXsg2.jpg "Jackett NSSM")  
 
 Port 38085
