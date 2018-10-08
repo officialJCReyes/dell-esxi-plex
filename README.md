@@ -145,7 +145,7 @@ Back at the command prompt, type *nssm install Delugew*. Use the following setti
 
 **Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
-**Arguments:** C:\config_location
+**Arguments:** -c C:\config_location
 
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
