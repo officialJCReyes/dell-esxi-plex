@@ -124,11 +124,6 @@ Inside the Caddy folder, create a subfolder called *php*. Download the following
 
 To run Caddy as a service, open a command prompt and type *nssm install Caddy*
 
-#### Tautulli (Plex Monitoring, Reporting and Newsletters)
-[Download](https://github.com/Tautulli/Tautulli/releases)
-Port 38080
-Open a command prompt and type *nssm install Tautulli*
-
 #### VPN
 We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
 
@@ -140,16 +135,26 @@ Open command prompt and type *nssm install Deluged*. Use the following settings 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
 **Arguments:** -c C:\config_location
-
+![alt text](https://imgur.com/ruuY3WH.jpg "Deluged NSSM")  
 Back at the command prompt, type *nssm install Delugew*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
 **Arguments:** -c C:\config_location
-
+![alt text](https://imgur.com/oBTp4NB.jpg "Delugew NSSM")  
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
 Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
+
+#### Tautulli (Plex Monitoring, Reporting and Newsletters)
+[Download](https://github.com/Tautulli/Tautulli/releases)
+Port 38080
+Open a command prompt and type *nssm install Tautulli*
+
+**Path:** C:\Python27\pythonw.exe  
+**Start directory:** C:\Python27\  
+**Arguments:** C:\Tools\Tautulli\Tautulli.py
+![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
 
 #### CouchPotato (Organizes and obtains movies)
 We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
@@ -158,7 +163,8 @@ Open command prompt and type "nssm install CouchPotato". Use the following setti
 
 **Path:** C:\python27\python.exe  
 **Start directory:** C:\python27  
-**Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer
+**Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer  
+![alt text](https://imgur.com/TNo4rsR.jpg "Couchpotato NSSM")  
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5050
 Port 38082
@@ -168,6 +174,8 @@ Port 38082
 
 **Path:** C:\Tools\Sonarr\NzbDrone.exe  
 **Start directory:** C:\Tools\Sonarr
+![alt text](https://imgur.com/WLGYMiX.jpg "Sonarr NSSM")  
+
 Port 38083
 
 #### Ombi (Allows users to request TV and Movies)
@@ -177,14 +185,18 @@ Open a command prompt and type *nssm install Ombi*. Use the following settings f
 
 **Path:** C:\Tools\Ombi\Ombi.exe  
 **Start directory:** C:\Tools\Ombi 
+![alt text](https://imgur.com/rR6ACCf.jpg "Ombi NSSM")  
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5000
 Port 38084
 
 #### Jackett (Aggregator)
-Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/Jackett/Jackett.git*. This will download the latest release for Jackett into *\Jackett*.
+[Download](https://github.com/Jackett/Jackett/releases)
+**Path:** C:\ProgramData\Jackett\JackettConsole.exe  
+**Start directory:** C:\ProgramData\Jackett 
+![alt text](https://imgur.com/uQZXsg2.jpg "Jackett NSSM")  
+
 Port 38085
-Open command prompt and type *nssm install Jackett*
 
 ## Pi-Hole
 This part of the project is not necessary, but it is something I wanted to do to block analytics, tracking, malware and other unwanted items as a result of ads. This will not only protect your computer but any device that connects to your network, be it a smart TV, smart phone, console etc. You can find out more about this project [here].(https://pi-hole.net/)
