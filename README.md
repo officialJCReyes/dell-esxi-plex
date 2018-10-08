@@ -164,7 +164,10 @@ Save the NSSM settings and when you're back the command prompt, type *nssm start
 Port 38082
 
 #### Sonarr (Organizes and obtains TV shows)
-[Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*
+[Download](https://github.com/Sonarr/Sonarr/releases) Sonarr and extract contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*
+
+**Path:** C:\Tools\Sonarr\NzbDrone.exe  
+**Start directory:** C:\Tools\Sonarr
 Port 38083
 
 #### Ombi (Allows users to request TV and Movies)
