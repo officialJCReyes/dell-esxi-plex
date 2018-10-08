@@ -156,25 +156,30 @@ We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
-**Path:** c:\python27\python.exe  
-**Start directory:** c:\python27  
+**Path:** C:\python27\python.exe  
+**Start directory:** C:\python27  
 **Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5050
 Port 38082
 
 #### Sonarr (Organizes and obtains TV shows)
-[Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to *C:\Tools\Sonarr*.
-Open command prompt and type *nssm install Sonarr*
+[Download](https://download.sonarr.tv/v2/master/latest/NzbDrone.master.zip) Sonarr and extract contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*
 Port 38083
 
 #### Ombi (Allows users to request TV and Movies)
-[Download](https://ombi.io/)
+[Download](https://ombi.io/) Ombi, right-click on the zip file and check *Unblock*. Extract contents of the zip file to *c:\Tools\Ombi*. 
+
+Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
+
+**Path:** C:\Tools\Ombi\Ombi.exe  
+**Start directory:** C:\Tools\Ombi 
+
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5000
 Port 38084
-Open a command prompt and type *nssm install Ombi*
 
 #### Jackett (Aggregator)
-[Download](https://github.com/Jackett/Jackett)
+Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/Jackett/Jackett.git*. This will download the latest release for Jackett into *\Jackett*.
 Port 38085
 Open command prompt and type *nssm install Jackett*
 
