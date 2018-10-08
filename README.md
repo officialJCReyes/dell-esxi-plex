@@ -127,10 +127,10 @@ To run Caddy as a service, open a command prompt and type *nssm install Caddy*
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
 [Download](https://github.com/Tautulli/Tautulli/releases)
 Port 38080
-Open a command prompt and type "nssm install Tautulli"
+Open a command prompt and type *nssm install Tautulli*
 
 #### VPN
-We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Users\USERNAME\OpenVPN\config*.
+We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
 
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
