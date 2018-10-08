@@ -152,7 +152,7 @@ Back at the command prompt, be sure both services are running by typing *nssm st
 Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
 
 #### CouchPotato (Organizes and obtains movies)
-We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
+We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
