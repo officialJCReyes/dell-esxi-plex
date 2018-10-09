@@ -123,7 +123,7 @@ To run Caddy as a service, open a command prompt and type *nssm install Caddy*
 
 
 ## Plex Tools VM
-Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
+Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808**X**, with X starting at 0 and going up for each additional service.
 
 #### VPN
 We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
@@ -162,7 +162,7 @@ Save the NSSM settings and when you're back the command prompt, type *nssm start
 
 
 #### CouchPotato (Organizes and obtains movies)
-We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
+We will start by downloading [Python 2.7](https://www.python.org/downloads/release/python-2715/), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
