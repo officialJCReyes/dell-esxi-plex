@@ -117,18 +117,18 @@ Open a command prompt and type *nssm install Plex*
 #### Caddy (Reverse Proxy/SSL)
 We will now install our reverse proxy tool which you can download here [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
 
-Inside the Caddy folder, create a subfolder called *php*. Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to *C:\caddy\php*
+Inside the Caddy folder, create a subfolder called *php*. Download the [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) zip file and extract the contents to *C:\caddy\php*. Now to run Caddy as a service upon start up, open a command prompt and type *nssm install Caddy*
 
-To run Caddy as a service, open a command prompt and type *nssm install Caddy*
+**Path:** C:\caddy\caddy.exe  
+**Startup Directory:** C:\caddy  
 
+Save the NSSM settings and when you're back the command prompt, type *nssm start Caddy*. Open a new browser tab and head to 127.0.0.1:2015.
 
 ## Plex Tools VM
-Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808**X**, with X starting at 0 and going up for each additional service.
+Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808**X**, with X starting at 0 and going up for each additional service. If you decide to use different ports, be sure to make a note of them and adjust the rest of the guide accordingly. The majority of our tools will be stored in *C:\Tools*
 
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
-[Download](https://github.com/Tautulli/Tautulli/releases)
-Port 38080
-Open a command prompt and type *nssm install Tautulli*
+Let's being by downloading the latest release of [Python 2.7](https://www.python.org/downloads/release/python-2715/) and the Tautulli [zip file](https://github.com/Tautulli/Tautulli/releases). Run the Python installer leaving all defaults and extract the contents of the zip file to *C:\Tools\Tautulli*. Open a command prompt and type *nssm install Tautulli*. Use the following settings for NSSM: 
 
 **Path:** C:\Python27\pythonw.exe  
 **Start directory:** C:\Python27\  
@@ -136,12 +136,12 @@ Open a command prompt and type *nssm install Tautulli*
 
 ![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
 
-Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:8181
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to [127.0.0.1:8181](127.0.0.1:8181). You should now see the setup wizard for Tautulli. Proceed to fill in the details for your Plex Server environment. 
+
+With Tautulli now connected to your Plex Server, let's head over to Settings -> Web Interface and change the *HTTP Port* to 38080. Under *Public Tautulli Domain* I will be using https://domain.com/stats and stats as the *HTTP Root*. Finally, check the box for *Enable HTTP Proxy* so that we can properly proxy through Caddy. If you aren't prompted, restart Tautulli and you should now be able to connect to it via [127.0.0.1:38080/stats](127.0.0.1:38080/stats).
 
 #### Deluge (light-weight torrent client)
-We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
-
-Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
+We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081. Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
@@ -155,10 +155,12 @@ Back at the command prompt, type *nssm install Delugew*. Use the following setti
 ![alt text](https://imgur.com/oBTp4NB.jpg "Delugew NSSM")  
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
-Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
+Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install. We will make two final changes to tell Deluge where to store download files as well as where to locate torrent files. Go to Preferences-> Downloads and under *Download to* change the directory to *C:\Users\<USERNAME>\Downloads\Torrents*. Check the box for *Autoadd .torrent files from* and change the directory to *C:\Users\<USERNAME>\Downloads\Torrent Files*.
+
+In order to maximize your download speeds, you should follow this [guide](https://www.rapidseedbox.com/kb/ultimate-deluge-guide#speedx) from RapidSpeedBox. Making those adjustments are out of the scope of this guide as these settings will vary greatly depending on your ISP, network speeds among other things.
 
 #### CouchPotato (Organizes and obtains movies)
-We will start by downloading [Python 2.7](https://www.python.org/downloads/release/python-2715/), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
+We will start by downloading the latest release of [Python 2.7](https://www.python.org/downloads/release/python-2715/) (this should have already been installed with Tautulli), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
@@ -172,7 +174,7 @@ Save the NSSM settings and when you're back the command prompt, type *nssm start
 Port 38082
 
 #### Sonarr (Organizes and obtains TV shows)
-[Download](https://github.com/Sonarr/Sonarr/releases) Sonarr and extract contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*
+[Download](https://github.com/Sonarr/Sonarr/releases) the zip for the lateste release. Extact the contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*. Use the following settings for NSSM:
 
 **Path:** C:\Tools\Sonarr\NzbDrone.exe  
 **Start directory:** C:\Tools\Sonarr  
@@ -184,7 +186,7 @@ Save the NSSM settings and when you're back the command prompt, type *nssm start
 Port 38083
 
 #### Ombi (Allows users to request TV and Movies)
-[Download](https://ombi.io/) Ombi, right-click on the zip file and check *Unblock*. Extract contents of the zip file to *c:\Tools\Ombi*. Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
+Let's start by [downloading](https://ombi.io/) Ombi, right-clicking on the zip file and check *Unblock*. Extract the contents of the zip file to *C:\Tools\Ombi*. Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
 
 **Path:** C:\Tools\Ombi\Ombi.exe  
 **Start directory:** C:\Tools\Ombi  
