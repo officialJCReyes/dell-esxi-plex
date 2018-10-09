@@ -125,13 +125,18 @@ To run Caddy as a service, open a command prompt and type *nssm install Caddy*
 ## Plex Tools VM
 Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808**X**, with X starting at 0 and going up for each additional service.
 
-#### VPN
-We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
+#### Tautulli (Plex Monitoring, Reporting and Newsletters)
+[Download](https://github.com/Tautulli/Tautulli/releases)
+Port 38080
+Open a command prompt and type *nssm install Tautulli*
 
-**Path:** C:\Program Files\OpenVPN\bin\openvpn-gui.exe  
-**Start directory:** C:\Program Files\OpenVPN\bin  
-**Arguments:** --connect "<NAME OF CONFIG FILE>.ovpn"  
-![alt text](https://imgur.com/xk5tWG7.jpg "OpenVPN NSSM")  
+**Path:** C:\Python27\pythonw.exe  
+**Start directory:** C:\Python27\  
+**Arguments:** C:\Tools\Tautulli\Tautulli.py  
+
+![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
+
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:8181
 
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
@@ -151,20 +156,6 @@ Back at the command prompt, type *nssm install Delugew*. Use the following setti
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
 Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install.
-
-#### Tautulli (Plex Monitoring, Reporting and Newsletters)
-[Download](https://github.com/Tautulli/Tautulli/releases)
-Port 38080
-Open a command prompt and type *nssm install Tautulli*
-
-**Path:** C:\Python27\pythonw.exe  
-**Start directory:** C:\Python27\  
-**Arguments:** C:\Tools\Tautulli\Tautulli.py  
-
-![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
-
-Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:8181
-
 
 #### CouchPotato (Organizes and obtains movies)
 We will start by downloading [Python 2.7](https://www.python.org/downloads/release/python-2715/), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
@@ -212,6 +203,14 @@ Port 38084
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start Jackett*. Open a new browser tab and head to 127.0.0.1:9117
 Port 38085
+
+#### VPN
+We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
+
+**Path:** C:\Program Files\OpenVPN\bin\openvpn-gui.exe  
+**Start directory:** C:\Program Files\OpenVPN\bin  
+**Arguments:** --connect "<NAME OF CONFIG FILE>.ovpn"  
+![alt text](https://imgur.com/xk5tWG7.jpg "OpenVPN NSSM")  
 
 ## Pi-Hole
 This part of the project is not necessary, but it is something I wanted to do to block analytics, tracking, malware and other unwanted items as a result of ads. This will not only protect your computer but any device that connects to your network, be it a smart TV, smart phone, console etc. You can find out more about this project [here](https://pi-hole.net/).
