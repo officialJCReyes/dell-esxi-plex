@@ -128,6 +128,11 @@ Since this VM will be on 24/7, I've decided to create two user accounts, Admin a
 #### VPN
 We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
 
+**Path:** C:\Program Files\OpenVPN\bin\openvpn-gui.exe  
+**Start directory:** C:\Program Files\OpenVPN\bin  
+**Arguments:** --connect "<NAME OF CONFIG FILE>.ovpn"  
+![alt text](https://imgur.com/xk5tWG7.jpg "OpenVPN NSSM")  
+
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081.
 
