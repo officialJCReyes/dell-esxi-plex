@@ -136,9 +136,9 @@ Let's being by downloading the latest release of [Python 2.7](https://www.python
 
 ![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
 
-Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to [127.0.0.1:8181](127.0.0.1:8181). You should now see the setup wizard for Tautulli. Proceed to fill in the details for your Plex Server environment. 
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to [127.0.0.1:8181](http://127.0.0.1:8181). You should now see the setup wizard for Tautulli. Proceed to fill in the details for your Plex Server environment. 
 
-With Tautulli now connected to your Plex Server, let's head over to Settings -> Web Interface and change the *HTTP Port* to 38080. Under *Public Tautulli Domain* I will be using https://domain.com/stats and stats as the *HTTP Root*. Finally, check the box for *Enable HTTP Proxy* so that we can properly proxy through Caddy. If you aren't prompted, restart Tautulli and you should now be able to connect to it via [127.0.0.1:38080/stats](127.0.0.1:38080/stats).
+With Tautulli now connected to your Plex Server, let's head over to Settings -> Web Interface and change the *HTTP Port* to 38080. Under *Public Tautulli Domain* I will be using https://domain.com/stats and stats as the *HTTP Root*. Finally, check the box for *Enable HTTP Proxy* so that we can properly proxy through Caddy. If you aren't prompted, restart Tautulli and you should now be able to connect to it via [127.0.0.1:38080/stats](http://127.0.0.1:38080/stats).
 
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081. Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
