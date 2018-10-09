@@ -141,7 +141,7 @@ Save the NSSM settings and when you're back the command prompt, type *nssm start
 With Tautulli now connected to your Plex Server, let's head over to Settings -> Web Interface and change the *HTTP Port* to 38080. Under *Public Tautulli Domain* I will be using https://domain.com/stats and stats as the *HTTP Root*. Finally, check the box for *Enable HTTP Proxy* so that we can properly proxy through Caddy. If you aren't prompted, restart Tautulli and you should now be able to connect to it via [127.0.0.1:38080/stats](http://127.0.0.1:38080/stats).
 
 #### Deluge (light-weight torrent client)
-We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the[WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081. Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
+We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the [WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081. Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
 
 **Path:** C:\Program Files\Deluge\deluged-debug.exe  
 **Start directory:** C:\Program Files\Deluge\  
@@ -155,12 +155,12 @@ Back at the command prompt, type *nssm install Delugew*. Use the following setti
 ![alt text](https://imgur.com/oBTp4NB.jpg "Delugew NSSM")  
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
-Open your favorite browser and go to 127.0.0.1:38081. Enter deluge as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install. We will make two final changes to tell Deluge where to store download files as well as where to locate torrent files. Go to Preferences-> Downloads and under *Download to* change the directory to *C:\Users\<USERNAME>\Downloads\Torrents*. Check the box for *Autoadd .torrent files from* and change the directory to *C:\Users\<USERNAME>\Downloads\Torrent Files*.
+Open your favorite browser and go to [127.0.0.1:38081](http://127.0.0.1:38081). Enter *deluge* as the default password. You will be prompted to change the password which is recommended. To install the EGG file we downloaded earlier, go to Preferences-> Plugins -> Install. Browse to the directory where you downloaded the file, select it and press install. We will make two final changes to tell Deluge where to store download files as well as where to locate torrent files. Go to Preferences-> Downloads and under *Download to* change the directory to *C:\Users\<USERNAME>\Downloads\Torrents*. Check the box for *Autoadd .torrent files from* and change the directory to *C:\Users\<USERNAME>\Downloads\Torrent Files*.
 
 In order to maximize your download speeds, you should follow this [guide](https://www.rapidseedbox.com/kb/ultimate-deluge-guide#speedx) from RapidSpeedBox. Making those adjustments are out of the scope of this guide as these settings will vary greatly depending on your ISP, network speeds among other things.
 
 #### CouchPotato (Organizes and obtains movies)
-We will start by downloading the latest release of [Python 2.7](https://www.python.org/downloads/release/python-2715/) (this should have already been installed with Tautulli), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
+We will start by downloading the latest release of [Python 2.7](https://www.python.org/downloads/release/python-2715/) (*this should have already been installed with Tautulli*), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
@@ -170,8 +170,8 @@ Open command prompt and type "nssm install CouchPotato". Use the following setti
 
 ![alt text](https://imgur.com/TNo4rsR.jpg "Couchpotato NSSM")  
 
-Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5050
-Port 38082
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to [127.0.0.1:5050](http://127.0.0.1:5050)
+Port 38082 [127.0.0.1:38082/movies](http://127.0.0.1:38082/movies)
 
 #### Sonarr (Organizes and obtains TV shows)
 [Download](https://github.com/Sonarr/Sonarr/releases) the zip for the lateste release. Extact the contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*. Use the following settings for NSSM:
@@ -181,9 +181,9 @@ Port 38082
 
 ![alt text](https://imgur.com/WLGYMiX.jpg "Sonarr NSSM")  
 
-Save the NSSM settings and when you're back the command prompt, type *nssm start Sonarr*. Open a new browser tab and head to 127.0.0.1:8989
+Save the NSSM settings and when you're back the command prompt, type *nssm start Sonarr*. Open a new browser tab and head to [127.0.0.1:8989](http://127.0.0.1:8989)
 
-Port 38083
+Port 38083 [127.0.0.1:38083/shows](http://127.0.0.1:38083/shows)
 
 #### Ombi (Allows users to request TV and Movies)
 Let's start by [downloading](https://ombi.io/) Ombi, right-clicking on the zip file and check *Unblock*. Extract the contents of the zip file to *C:\Tools\Ombi*. Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
@@ -193,8 +193,8 @@ Let's start by [downloading](https://ombi.io/) Ombi, right-clicking on the zip f
 
 ![alt text](https://imgur.com/rR6ACCf.jpg "Ombi NSSM")  
 
-Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5000
-Port 38084
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to [127.0.0.1:5000](http://127.0.0.1:5000)
+Port 38084 [127.0.0.1:38084](http://127.0.0.1:38084)
 
 #### Jackett (Aggregator)
 [Download](https://github.com/Jackett/Jackett/releases)
@@ -203,8 +203,8 @@ Port 38084
 
 ![alt text](https://imgur.com/uQZXsg2.jpg "Jackett NSSM")  
 
-Save the NSSM settings and when you're back the command prompt, type *nssm start Jackett*. Open a new browser tab and head to 127.0.0.1:9117
-Port 38085
+Save the NSSM settings and when you're back the command prompt, type *nssm start Jackett*. Open a new browser tab and head to [127.0.0.1:9117](http://127.0.0.1:9117)
+Port 38085 [127.0.0.1:38085](http://127.0.0.1:38085)
 
 #### VPN
 We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
