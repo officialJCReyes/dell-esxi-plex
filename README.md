@@ -112,17 +112,18 @@ We will now be installing the latest version Plex, which you can always [downloa
 Open a command prompt and type *nssm install Plex*
 
 **Path:** C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Server.exe  
-**Startup Directory:** C:\Program Files (x86)\Plex\Plex Media Server  
-
-## Plex Tools VM
-Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
+**Startup Directory:** C:\Program Files (x86)\Plex\Plex Media Server 
 
 #### Caddy (Reverse Proxy/SSL)
-We will first start by downloading our reverse proxy tool [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
+We will now install our reverse proxy tool which you can download here [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
 
 Inside the Caddy folder, create a subfolder called *php*. Download the following [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) file and extract the contents to *C:\caddy\php*
 
 To run Caddy as a service, open a command prompt and type *nssm install Caddy*
+
+
+## Plex Tools VM
+Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808X, with X starting at 0 and going up for each additional service.
 
 #### VPN
 We will be using Private Internet Access as our VPN provider and OpenVPN for the connection. Download and install [OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) with all defaults and the [PIA OVPN Files](https://www.privateinternetaccess.com/openvpn/openvpn.zip). Extract the contents of the zip file to *C:\Program Files\OpenVPN\config*.
@@ -154,7 +155,11 @@ Open a command prompt and type *nssm install Tautulli*
 **Path:** C:\Python27\pythonw.exe  
 **Start directory:** C:\Python27\  
 **Arguments:** C:\Tools\Tautulli\Tautulli.py  
+
 ![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
+
+Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:8181
+
 
 #### CouchPotato (Organizes and obtains movies)
 We will start by downloading [Python 2.7](https://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi), [PyWin32 2.7](http://sourceforge.net/projects/pywin32/files/pywin32/Build%20217/) and [GIT](https://git-scm.com/). Run the Python installer and be sure to keep the default directory *C:\Python27*. Open up command prompt, type *cd C:\Tools* and then *git clone https://github.com/CouchPotato/CouchPotatoServer.git*. This will download the latest release for CouchPotato into *\CouchPotatoServer*.
@@ -164,6 +169,7 @@ Open command prompt and type "nssm install CouchPotato". Use the following setti
 **Path:** C:\python27\python.exe  
 **Start directory:** C:\python27  
 **Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer  
+
 ![alt text](https://imgur.com/TNo4rsR.jpg "Couchpotato NSSM")  
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5050
@@ -174,17 +180,19 @@ Port 38082
 
 **Path:** C:\Tools\Sonarr\NzbDrone.exe  
 **Start directory:** C:\Tools\Sonarr  
+
 ![alt text](https://imgur.com/WLGYMiX.jpg "Sonarr NSSM")  
+
+Save the NSSM settings and when you're back the command prompt, type *nssm start Sonarr*. Open a new browser tab and head to 127.0.0.1:8989
 
 Port 38083
 
 #### Ombi (Allows users to request TV and Movies)
-[Download](https://ombi.io/) Ombi, right-click on the zip file and check *Unblock*. Extract contents of the zip file to *c:\Tools\Ombi*. 
-
-Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
+[Download](https://ombi.io/) Ombi, right-click on the zip file and check *Unblock*. Extract contents of the zip file to *c:\Tools\Ombi*. Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
 
 **Path:** C:\Tools\Ombi\Ombi.exe  
 **Start directory:** C:\Tools\Ombi  
+
 ![alt text](https://imgur.com/rR6ACCf.jpg "Ombi NSSM")  
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start CouchPotato*. Open a new browser tab and head to 127.0.0.1:5000
@@ -194,12 +202,14 @@ Port 38084
 [Download](https://github.com/Jackett/Jackett/releases)
 **Path:** C:\ProgramData\Jackett\JackettConsole.exe  
 **Start directory:** C:\ProgramData\Jackett  
+
 ![alt text](https://imgur.com/uQZXsg2.jpg "Jackett NSSM")  
 
+Save the NSSM settings and when you're back the command prompt, type *nssm start Jackett*. Open a new browser tab and head to 127.0.0.1:9117
 Port 38085
 
 ## Pi-Hole
-This part of the project is not necessary, but it is something I wanted to do to block analytics, tracking, malware and other unwanted items as a result of ads. This will not only protect your computer but any device that connects to your network, be it a smart TV, smart phone, console etc. You can find out more about this project [here].(https://pi-hole.net/)
+This part of the project is not necessary, but it is something I wanted to do to block analytics, tracking, malware and other unwanted items as a result of ads. This will not only protect your computer but any device that connects to your network, be it a smart TV, smart phone, console etc. You can find out more about this project [here](https://pi-hole.net/).
 
 ## Final Remarks
 
