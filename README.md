@@ -111,28 +111,28 @@ We will now be installing the latest version Plex, which you can always [downloa
 
 Open a command prompt and type *nssm install Plex*
 
-**Path:** C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Server.exe  
-**Startup Directory:** C:\Program Files (x86)\Plex\Plex Media Server 
+**Path:** 'C:\Program Files (x86)\Plex\Plex Media Server\Plex Media Server.exe'  
+**Startup Directory:** 'C:\Program Files (x86)\Plex\Plex Media Server' 
 
 #### Caddy (Reverse Proxy/SSL)
 We will now install our reverse proxy tool which you can download here [here](https://caddyserver.com/download). Create a folder called "caddy" at the root of the C drive, extract the contents of the zip folder to that directory. Next, we will forward ports 80 and 443 on the Windows Firewall AND the router. Copy the contents of the following [Caddy File](https://github.com/officialJCReyes/dell-esxi-plex/blob/master/caddy-file) and place it in the Caddy folder you created. I recommend using [Notepad ++](https://notepad-plus-plus.org/download/v7.5.8.html) to edit the file. When saving the file, DO NOT add an extenstion to it.
 
 Inside the Caddy folder, create a subfolder called *php*. Download the [PHP 7.0](https://windows.php.net/downloads/releases/php-7.0.32-nts-Win32-VC14-x64.zip) zip file and extract the contents to *C:\caddy\php*. Now to run Caddy as a service upon start up, open a command prompt and type *nssm install Caddy*
 
-**Path:** C:\caddy\caddy.exe  
-**Startup Directory:** C:\caddy  
+**Path:** 'C:\caddy\caddy.exe'  
+**Startup Directory:** 'C:\caddy'  
 
 Save the NSSM settings and when you're back the command prompt, type *nssm start Caddy*. Open a new browser tab and head to 127.0.0.1:2015.
 
 ## Plex Tools VM
-Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808**X**, with X starting at 0 and going up for each additional service. If you decide to use different ports, be sure to make a note of them and adjust the rest of the guide accordingly. The majority of our tools will be stored in *C:\Tools*
+Since this VM will be on 24/7, I've decided to create two user accounts, Admin and PMST, with PMST being a standard user and which will be logged in all the time. Every Plex tool requires a [port](https://www.reddit.com/r/explainlikeimfive/comments/1t9s5a/eli5_what_are_ports_ex_tcp_port/ce5tbfs) to access your network and internet. Port numbers range from 1-65,535 with ports 1-1024 reserved for the system. You can choose any ports after 1024 for your services. For this project, I chose 3808**X**, with X starting at 0 and going up for each additional service. If you decide to use different ports, be sure to make a note of them and adjust the rest of the guide accordingly. The majority of our tools will be stored in *C:\Tools*. Let us create a firewall rule to allow our programs network access via the port they will be running on. Open Control Panel -> Windows Defender Firewall -> Advanced Settings. Right click *Inbound Rules* and click on *New Rule*. Select Port, leave it on TCP and enter your port ranges, in our case 38080-38085 since we are running 6 services. Allow the connection, apply the rule on all networks, give it a name and finish.
 
 #### Tautulli (Plex Monitoring, Reporting and Newsletters)
 Let's being by downloading the latest release of [Python 2.7](https://www.python.org/downloads/release/python-2715/) and the Tautulli [zip file](https://github.com/Tautulli/Tautulli/releases). Run the Python installer leaving all defaults and extract the contents of the zip file to *C:\Tools\Tautulli*. Open a command prompt and type *nssm install Tautulli*. Use the following settings for NSSM: 
 
-**Path:** C:\Python27\pythonw.exe  
-**Start directory:** C:\Python27\  
-**Arguments:** C:\Tools\Tautulli\Tautulli.py  
+**Path:** 'C:\Python27\pythonw.exe'  
+**Start directory:** 'C:\Python27'  
+**Arguments:** 'C:\Tools\Tautulli\Tautulli.py'  
 
 ![alt text](https://imgur.com/2u0VTsg.jpg "Tautulli NSSM") 
 
@@ -143,15 +143,15 @@ With Tautulli now connected to your Plex Server, let's head over to Settings -> 
 #### Deluge (light-weight torrent client)
 We will need to download the latest version of Deluge from [here](https://dev.deluge-torrent.org/wiki/Download). Go ahead and also download the [WebAPI](https://github.com/idlesign/deluge-webapi/blob/master/dist/WebAPI-0.2.1-py2.7.egg). Install Deluge with all defaults and open it once installed. Go to Preferences -> Plugins and enable Extractor, Label and WebUI. Under WebUI, enable the web interface and change the default port number to 38081. Open command prompt and type *nssm install Deluged*. Use the following settings for NSSM: 
 
-**Path:** C:\Program Files\Deluge\deluged-debug.exe  
-**Start directory:** C:\Program Files\Deluge\  
-**Arguments:** -c C:\config_location  
+**Path:** 'C:\Program Files\Deluge\deluged-debug.exe'  
+**Start directory:** 'C:\Program Files\Deluge'  
+**Arguments:** '-c C:\config_location'  
 ![alt text](https://imgur.com/ruuY3WH.jpg "Deluged NSSM")  
 Back at the command prompt, type *nssm install Delugew*. Use the following settings for NSSM: 
 
-**Path:** C:\Program Files\Deluge\deluge-web-debug.exe  
-**Start directory:** C:\Program Files\Deluge\  
-**Arguments:** -c C:\config_location  
+**Path:** 'C:\Program Files\Deluge\deluge-web-debug.exe'  
+**Start directory:** 'C:\Program Files\Deluge'  
+**Arguments:** '-c C:\config_location'  
 ![alt text](https://imgur.com/oBTp4NB.jpg "Delugew NSSM")  
 Back at the command prompt, be sure both services are running by typing *nssm start Deluged* and *nssm start Delugew*.
 
@@ -164,9 +164,9 @@ We will start by downloading the latest release of [Python 2.7](https://www.pyth
 
 Open command prompt and type "nssm install CouchPotato". Use the following settings for NSSM:
 
-**Path:** C:\python27\python.exe  
-**Start directory:** C:\python27  
-**Arguments:** C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer  
+**Path:** 'C:\python27\python.exe'  
+**Start directory:** 'C:\python27'  
+**Arguments:** 'C:\Tools\CouchPotatoServer\couchpotato.py --data_dir=C:\Tools\CouchPotatoServer'  
 
 ![alt text](https://imgur.com/TNo4rsR.jpg "Couchpotato NSSM")  
 
@@ -176,8 +176,8 @@ Port 38082 [127.0.0.1:38082/movies](http://127.0.0.1:38082/movies)
 #### Sonarr (Organizes and obtains TV shows)
 [Download](https://github.com/Sonarr/Sonarr/releases) the zip for the lateste release. Extact the contents to *C:\Tools\Sonarr*. Open command prompt and type *nssm install Sonarr*. Use the following settings for NSSM:
 
-**Path:** C:\Tools\Sonarr\NzbDrone.exe  
-**Start directory:** C:\Tools\Sonarr  
+**Path:** 'C:\Tools\Sonarr\NzbDrone.exe'  
+**Start directory:** 'C:\Tools\Sonarr'  
 
 ![alt text](https://imgur.com/WLGYMiX.jpg "Sonarr NSSM")  
 
@@ -188,8 +188,8 @@ Port 38083 [127.0.0.1:38083/shows](http://127.0.0.1:38083/shows)
 #### Ombi (Allows users to request TV and Movies)
 Let's start by [downloading](https://ombi.io/) Ombi, right-clicking on the zip file and check *Unblock*. Extract the contents of the zip file to *C:\Tools\Ombi*. Open a command prompt and type *nssm install Ombi*. Use the following settings for NSSM:
 
-**Path:** C:\Tools\Ombi\Ombi.exe  
-**Start directory:** C:\Tools\Ombi  
+**Path:** 'C:\Tools\Ombi\Ombi.exe'  
+**Start directory:** 'C:\Tools\Ombi'  
 
 ![alt text](https://imgur.com/rR6ACCf.jpg "Ombi NSSM")  
 
@@ -198,8 +198,8 @@ Port 38084 [127.0.0.1:38084](http://127.0.0.1:38084)
 
 #### Jackett (Aggregator)
 [Download](https://github.com/Jackett/Jackett/releases)
-**Path:** C:\ProgramData\Jackett\JackettConsole.exe  
-**Start directory:** C:\ProgramData\Jackett  
+**Path:** 'C:\ProgramData\Jackett\JackettConsole.exe'  
+**Start directory:** 'C:\ProgramData\Jackett'  
 
 ![alt text](https://imgur.com/uQZXsg2.jpg "Jackett NSSM")  
 
