@@ -21,7 +21,7 @@ For this project I used the following RAM: (https://ebay.us/cNtUOh)
 I replaced all the drives in this server with one 500GB SSD and seven 4 TB 2.5" SATA drives. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector, which I will use to connect an 8GB flash drive that serve as the ESXi boot device. The 500GB SSD will be used to house the Windows 10 virtual machines for Plex and Plex Media Tools and will be in a RAID 0 configuration.
 
 #### PCI Expansion
-This server has 1 x PCIe x8 and 1 x PCIe x16 slots for expansion. I plan to eventually add a quad NIC.
+This server has 1 PCIe x16 and 1 PCIe x4 slot. I purchased an Intel PRO/1000 Dual NIC from [eBay](https://ebay.us/yv7rMx). 
 
 ## Final Server Specs
 These are the final specs of my rebuilt server
