@@ -28,6 +28,6 @@ These are the final specs of my rebuilt server
   * CPU- Xeon E5-2430
   * RAM- 6 x 4GB
   * RAID- PERC H710 with RAID 5 configuration
-  * Storage- 1 x 250 GB SATA SSD (RAID 1) 7 x 4TB 2.5" SATA HDD (RAID 5)
+  * Storage- 1 x 500 GB SATA SSD (RAID 1) 7 x 4TB 2.5" SATA HDD (RAID 5)
   * Power- Dual 350W PSUs
   * Dual NIC PCIe
