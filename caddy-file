@@ -1,6 +1,6 @@
 domain.com { #replace domain.com with your actual domain or DDNS address
 gzip
-proxy / 192.168.5.10:32400 { #Plex
+proxy / LOCAL_IP_ADDRESS_FOR_PLEX:32400 { #Plex
     header_upstream Host {host}
     header_upstream X-Real-IP {remote}
     header_upstream X-Forwarded-For {remote}
@@ -8,7 +8,7 @@ proxy / 192.168.5.10:32400 { #Plex
     header_upstream X-Forwarded-Host {host}
     header_upstream X-Forwarded-Ssl {on}
     }
-proxy /plex 192.168.5.10:32400/web { #Plex
+proxy /plex LOCAL_IP_ADDRESS_FOR_PLEX:32400/web { #Plex
     header_upstream Host {host}
     header_upstream X-Real-IP {remote}
     header_upstream X-Forwarded-For {remote}
@@ -16,22 +16,22 @@ proxy /plex 192.168.5.10:32400/web { #Plex
     header_upstream X-Forwarded-Host {host}
     header_upstream X-Forwarded-Ssl {on}
     }
-proxy /stats 192.168.5.11:38080 { #Tautulli
+proxy /stats LOCAL_IP_ADDRESS_FOR_TAUTULLI:PORT_FOR_TAUTULLI { #Tautulli
 	header_upstream X-Forwarded-Host {host}
     header_upstream X-Real-IP {remote}
     header_upstream X-Forwarded-For {remote}
     header_upstream X-Forwarded-Proto {scheme}
 	}
-proxy /torrent 192.168.5.11:38081 { #Deluge
+proxy /torrent LOCAL_IP_ADDRESS_FOR_DELUGE:PORT_FOR_DELUGE { #Deluge
 	transparent
 	without /torrent
 	header_upstream X-Forwarded-Host {host}
 	header_upstream X-Deluge-Base /torrent
 	}
-proxy /movies 192.168.5.11:38082 #Couchpotato
-proxy /shows 192.168.5.11:38083 #Sonarr
-proxy /request 192.168.5.11:38084 #Ombi
-proxy /jackett 192.168.5.11:38085 { #Jackett
+proxy /movies LOCAL_IP_ADDRESS_FOR_COUCHPOTATO:PORT_FOR_COUCHPOTATO #Couchpotato
+proxy /shows LOCAL_IP_ADDRESS_FOR_SONARR:PORT_FOR_SONARR #Sonarr
+proxy /request LOCAL_IP_ADDRESS_FOR_OMBI:PORT_FOR_OMBI #Ombi
+proxy /jackett LOCAL_IP_ADDRESS_FOR_JACKETT:PORT_FOR_JACKETT { #Jackett
 	transparent
 	}
 }
