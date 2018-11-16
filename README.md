@@ -22,7 +22,7 @@ For this project I used the following RAM: (https://ebay.us/cNtUOh)
 I replaced all the drives in this server with one 500GB SSD and seven 4 TB 2.5" SATA drives. This will provide 28 TB of raw storage, however, for redundancy we will be using RAID to have drive failovers in case drivers file. Using RAID 5 will provide 24TB of raw storage and RAID 6 provides 20TB of raw storage. For my case, I will be using RAID 5 to have the maximum amount of storage available for my media. This server also has one internal USB A 2.0 connector, which I will use to connect an 8GB flash drive that serve as the ESXi boot device. The 500GB SSD will be used to house the Windows 10 virtual machines for Plex and Plex Media Tools and will be in a RAID 0 configuration.
 
 #### PCI Expansion
-This server has 1 PCIe x16, 1 PCIe x8, and 1 PCIe x4 slot. The x8 and x4 slots are low profile cards so keep that in mind when obtaining cards. I purchased 2 NICs on eBay, an [Intel PRO/1000 Dual NIC](https://ebay.us/yv7rMx) and an [Intel PRO/1000 Quad NIC](https://www.ebay.com/itm/IBM-Intel-PRO-1000-Quad-Port-PCI-E-Low-Profile-Gigabit-Ethernet-Adapter/163364440312?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649). The reason I got these cards was to give every virtual machine their own NIC and Intel hardware plays nicely with ESXi. Avoid using Realtek cards. I also purchased an [H310 PCI card](https://www.ebay.com/itm/Dell-PERC-H310-Adapter-8-Port-6Gb-s-SAS-RAID-Controller/183500429826?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649). This card will be converted to an HBA so that we can 
+This server has 1 PCIe x16, 1 PCIe x8, and 1 PCIe x4 slot. The x8 and x4 slots are low profile cards so keep that in mind when obtaining cards. I purchased 2 NICs on eBay, an [Intel PRO/1000 Dual NIC](https://ebay.us/yv7rMx) and an [Intel PRO/1000 Quad NIC](https://www.ebay.com/itm/IBM-Intel-PRO-1000-Quad-Port-PCI-E-Low-Profile-Gigabit-Ethernet-Adapter/163364440312?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649). The reason I got these cards was to give every virtual machine their own NIC and Intel hardware plays nicely with ESXi. Avoid using Realtek cards. I also purchased an [H310 PCI card](https://www.ebay.com/itm/Dell-PERC-H310-Adapter-8-Port-6Gb-s-SAS-RAID-Controller/183500429826?ssPageName=STRK%3AMEBIDX%3AIT&_trksid=p2057872.m2749.l2649). This card will be converted to an HBA so that we can pass the storage drives directly into FreeNAS. 
 
 ## Final Server Specs
 These are the final specs of my rebuilt server
@@ -31,4 +31,4 @@ These are the final specs of my rebuilt server
   * RAID- PERC H710 with RAID 5 configuration
   * Storage- 1 x 500 GB SATA SSD (RAID 1) 7 x 4TB 2.5" SATA HDD (RAID 5)
   * Power- Dual 350W PSUs
-  * Dual NIC PCIe
+  * Dual NIC PCIe, Quad NIC PCIe and H310 PCIe
